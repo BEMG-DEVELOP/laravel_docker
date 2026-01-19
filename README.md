@@ -16,11 +16,12 @@ No requiere instalar PHP, Composer ni MySQL en el sistema host.
 ## Instalación
 
 1. Crear archivo `.env` en la raíz del proyecto:
-
+    cp src/.env.example src/.env
 2. Levantar contenedores:
-
+    docker compose up -d --build
 3. Ejecutar migraciones:
-
+    docker compose exec app php artisan key:generate
+    docker compose exec app php artisan migrate
 ## Notas
 - La base de datos corre dentro de Docker
 - Laravel consume variables de entorno inyectadas por Docker
